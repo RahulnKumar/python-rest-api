@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: hello-world
+  name: hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - image: rahul1024/hello-world
+        name: hellow-world
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "10m"
+          limits:
+            memory: "1000Mi"
+            cpu: "100m"
+        volumeMounts:
+          - mountPath: /root/staging.env
+            subPath: staging.env
+            name: env
+      volumes:
+        - name: env
+          configMap:
+            name: hello-world-config
+            items:
+              - key: staging.env
+                path: staging.env
+status: { }

@@ -1,0 +1,1 @@
+onnx_file_path="models/max_value_model.onnx"
