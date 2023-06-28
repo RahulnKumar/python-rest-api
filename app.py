@@ -2,7 +2,7 @@ import numpy as np
 import onnxruntime as ort
 from pydantic import BaseModel
 from config import config as cfg
-from fastapi import FastAPI,Request
+from fastapi import FastAPI
 
 
 # Define the FastAPI app
@@ -35,15 +35,6 @@ def inference(request: InferenceRequest):
     # Return the max value as the response
     return {"max_value": max_value}
 
-
-@app.get("/")
-async def hello_world():
-    return {"Message": "hello-world"}
-
-@app.post("/get_data")
-async def create_item(request: Request):
-    data = await request.json()
-    return {"data": data}
 
 @app.get("/health_check")
 async def healthcheck():

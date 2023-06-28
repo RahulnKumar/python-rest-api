@@ -3,31 +3,31 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: hello-world
-  name: hello-world
+    app: fast-api
+  name: fast-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world
+      app: fast-api
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: hello-world
+        app: fast-api
     spec:
       containers:
-      - image: rahul1024/hello-world
-        name: hellow-world
+      - image: rahul1024/fast-api
+        name: fast-api
         imagePullPolicy: Always
         resources:
           requests:
-            memory: "100Mi"
-            cpu: "10m"
-          limits:
             memory: "1000Mi"
-            cpu: "100m"
+            cpu: "1000m"
+          limits:
+            memory: "4000Mi"
+            cpu: "4000m"
         volumeMounts:
           - mountPath: /root/staging.env
             subPath: staging.env
@@ -35,7 +35,7 @@ spec:
       volumes:
         - name: env
           configMap:
-            name: hello-world-config
+            name: fast-api-config
             items:
               - key: staging.env
                 path: staging.env

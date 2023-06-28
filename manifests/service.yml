@@ -3,14 +3,14 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: hello-world
-  name: hello-world
+    app: fast-api
+  name: fast-api
 spec:
   ports:
   - port: 8980
     protocol: TCP
     targetPort: 8980
   selector:
-    app: hello-world
+    app: fast-api
   type: ClusterIP
 status:

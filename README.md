@@ -32,3 +32,5 @@
 Port forward for the service which has been deployed to k8s with one of the following commands:  
 - `kubectl port-forward service/<service_name> <local_port:k8s_port>`  
 - `kubectl port-forward deployment/<deployement_name> <local_port:k8s_port>`  
+
+Refer to  ![Fast API Deployment in K8s](https://techtalkverse.com/post/software-engineering/k8s_deployement/)
